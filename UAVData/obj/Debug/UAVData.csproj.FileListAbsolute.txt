@@ -1,0 +1,27 @@
+D:\CurrentProject\UAV\UAV\UAVData\bin\Debug\UAVData.dll.config
+D:\CurrentProject\UAV\UAV\UAVData\bin\Debug\UAVData.dll
+D:\CurrentProject\UAV\UAV\UAVData\bin\Debug\UAVData.pdb
+D:\CurrentProject\UAV\UAV\UAVData\bin\Debug\EntityFramework.dll
+D:\CurrentProject\UAV\UAV\UAVData\bin\Debug\EntityFramework.SqlServer.dll
+D:\CurrentProject\UAV\UAV\UAVData\bin\Debug\EntityFramework.xml
+D:\CurrentProject\UAV\UAV\UAVData\bin\Debug\EntityFramework.SqlServer.xml
+D:\CurrentProject\UAV\UAV\UAVData\obj\Debug\UAVData.dll
+D:\CurrentProject\UAV\UAV\UAVData\obj\Debug\UAVData.pdb
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVData\bin\Debug\UAVData.dll.config
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVData\bin\Debug\UAVData.dll
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVData\bin\Debug\UAVData.pdb
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVData\bin\Debug\EntityFramework.dll
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVData\bin\Debug\EntityFramework.SqlServer.dll
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVData\bin\Debug\EntityFramework.xml
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVData\bin\Debug\EntityFramework.SqlServer.xml
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVData\obj\Debug\UAVData.dll
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVData\obj\Debug\UAVData.pdb
+E:\Projects\UAV\trunk\UAV\UAV\UAVData\bin\Debug\UAVData.dll.config
+E:\Projects\UAV\trunk\UAV\UAV\UAVData\bin\Debug\UAVData.dll
+E:\Projects\UAV\trunk\UAV\UAV\UAVData\bin\Debug\UAVData.pdb
+E:\Projects\UAV\trunk\UAV\UAV\UAVData\bin\Debug\EntityFramework.dll
+E:\Projects\UAV\trunk\UAV\UAV\UAVData\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\UAV\trunk\UAV\UAV\UAVData\bin\Debug\EntityFramework.xml
+E:\Projects\UAV\trunk\UAV\UAV\UAVData\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\UAV\trunk\UAV\UAV\UAVData\obj\Debug\UAVData.dll
+E:\Projects\UAV\trunk\UAV\UAV\UAVData\obj\Debug\UAVData.pdb

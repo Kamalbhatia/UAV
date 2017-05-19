@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UAVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="UAVEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CustomerLocations" EntityType="UAVModel.CustomerLocation" />
+    <EntitySet Name="DroneEquipments" EntityType="UAVModel.DroneEquipment" />
+    <EntitySet Name="ErrorLogs" EntityType="UAVModel.ErrorLog" />
+    <EntitySet Name="Surveys" EntityType="UAVModel.Survey" />
+    <EntitySet Name="SurveyImages" EntityType="UAVModel.SurveyImage" />
+    <EntitySet Name="SurveyStatus" EntityType="UAVModel.SurveyStatu" />
+    <EntitySet Name="UserProfiles" EntityType="UAVModel.UserProfile" />
+    <AssociationSet Name="FK__SurveyIma__Custo__6A30C649" Association="UAVModel.FK__SurveyIma__Custo__6A30C649">
+      <End Role="CustomerLocation" EntitySet="CustomerLocations" />
+      <End Role="SurveyImage" EntitySet="SurveyImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerLocation_UserProfile" Association="UAVModel.FK_CustomerLocation_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="CustomerLocation" EntitySet="CustomerLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Survey__DroneID__656C112C" Association="UAVModel.FK__Survey__DroneID__656C112C">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="Survey" EntitySet="Surveys" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Survey__SurveySt__66603565" Association="UAVModel.FK__Survey__SurveySt__66603565">
+      <End Role="SurveyStatu" EntitySet="SurveyStatus" />
+      <End Role="Survey" EntitySet="Surveys" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SurveyIma__Surve__693CA210" Association="UAVModel.FK__SurveyIma__Surve__693CA210">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="SurveyImage" EntitySet="SurveyImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyCustomer_UserProfile" Association="UAVModel.FK_SurveyCustomer_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="Survey" EntitySet="Surveys" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyPilot_UserProfile" Association="UAVModel.FK_SurveyPilot_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="Survey" EntitySet="Surveys" />
+    </AssociationSet>
+    <EntitySet Name="AssignedCustomers" EntityType="UAVModel.AssignedCustomer" />
+    <AssociationSet Name="FK_AssignedCustomer_UserProfile" Association="UAVModel.FK_AssignedCustomer_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="AssignedCustomer" EntitySet="AssignedCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssignedCustomer_UserProfile1" Association="UAVModel.FK_AssignedCustomer_UserProfile1">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="AssignedCustomer" EntitySet="AssignedCustomers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CustomerLocation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int64" />
+    <Property Name="LocationName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="Geography" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SurveyImages" Relationship="UAVModel.FK__SurveyIma__Custo__6A30C649" FromRole="CustomerLocation" ToRole="SurveyImage" />
+    <NavigationProperty Name="UserProfile" Relationship="UAVModel.FK_CustomerLocation_UserProfile" FromRole="CustomerLocation" ToRole="UserProfile" />
+  </EntityType>
+  <EntityType Name="DroneEquipment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SerialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MethodName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Error" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Survey">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="SurveyDate" Type="DateTime" Precision="0" />
+    <Property Name="SurveyTime" Type="Time" Precision="7" />
+    <Property Name="CustomerID" Type="Int64" />
+    <Property Name="CustomerLocationID" Type="Int64" />
+    <Property Name="PilotID" Type="Int64" />
+    <Property Name="DroneID" Type="Int32" />
+    <Property Name="SurveyStatusID" Type="Int32" />
+    <Property Name="EC_ATC" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="EC_LocalPolice" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="EC_FireBrigde" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="EC_AE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="WC_Wind" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="WC_Precipitation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="WC_Visibility" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="WC_CloudCover" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="WC_KP" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="W_SunRise" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="W_SunSet" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="W_CTAFS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="W_WindSpeed" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="W_Prepreciption" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="W_Temperature" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="W_Notams" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SH_NotedStructure" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SH_PedestrainRisk" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SH_VehileRisk" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SH_ATR" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SH_ExplosiveRisk" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MS_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MS_Telephone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MS_Email" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="FT_StartTime" Type="DateTime" Precision="3" />
+    <Property Name="FT_EndTime" Type="DateTime" Precision="3" />
+    <Property Name="TimeHack" Type="DateTime" Precision="3" />
+    <Property Name="NearAreaPopulation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SiteAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="OperatingArea" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Question" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="WorkDescription" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="UserProfile" Relationship="UAVModel.FK__Survey__DroneID__656C112C" FromRole="Survey" ToRole="UserProfile" />
+    <NavigationProperty Name="SurveyStatu" Relationship="UAVModel.FK__Survey__SurveySt__66603565" FromRole="Survey" ToRole="SurveyStatu" />
+    <NavigationProperty Name="SurveyImages" Relationship="UAVModel.FK__SurveyIma__Surve__693CA210" FromRole="Survey" ToRole="SurveyImage" />
+    <NavigationProperty Name="UserProfile1" Relationship="UAVModel.FK_SurveyCustomer_UserProfile" FromRole="Survey" ToRole="UserProfile" />
+    <NavigationProperty Name="UserProfile2" Relationship="UAVModel.FK_SurveyPilot_UserProfile" FromRole="Survey" ToRole="UserProfile" />
+  </EntityType>
+  <EntityType Name="SurveyImage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SurveyID" Type="Int64" />
+    <Property Name="CustomerLocationID" Type="Int64" />
+    <Property Name="OriginalImageName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ImageName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedImageName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Finding" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="Recommentation" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="CanMitieRepair" Type="Boolean" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CustomerLocation" Relationship="UAVModel.FK__SurveyIma__Custo__6A30C649" FromRole="SurveyImage" ToRole="CustomerLocation" />
+    <NavigationProperty Name="Survey" Relationship="UAVModel.FK__SurveyIma__Surve__693CA210" FromRole="SurveyImage" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="SurveyStatu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Surveys" Relationship="UAVModel.FK__Survey__SurveySt__66603565" FromRole="SurveyStatu" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FName" Type="String" Nullable="false" MaxLength="56" FixedLength="false" Unicode="true" />
+    <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="56" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="56" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CustomerLocations" Relationship="UAVModel.FK_CustomerLocation_UserProfile" FromRole="UserProfile" ToRole="CustomerLocation" />
+    <NavigationProperty Name="Surveys" Relationship="UAVModel.FK__Survey__DroneID__656C112C" FromRole="UserProfile" ToRole="Survey" />
+    <NavigationProperty Name="Surveys1" Relationship="UAVModel.FK_SurveyCustomer_UserProfile" FromRole="UserProfile" ToRole="Survey" />
+    <NavigationProperty Name="Surveys2" Relationship="UAVModel.FK_SurveyPilot_UserProfile" FromRole="UserProfile" ToRole="Survey" />
+    <NavigationProperty Name="AssignedCustomer" Relationship="UAVModel.FK_AssignedCustomer_UserProfile" FromRole="UserProfile" ToRole="AssignedCustomer" />
+    <NavigationProperty Name="AssignedCustomers" Relationship="UAVModel.FK_AssignedCustomer_UserProfile1" FromRole="UserProfile" ToRole="AssignedCustomer" />
+  </EntityType>
+  <Association Name="FK__SurveyIma__Custo__6A30C649">
+    <End Type="UAVModel.CustomerLocation" Role="CustomerLocation" Multiplicity="0..1" />
+    <End Type="UAVModel.SurveyImage" Role="SurveyImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerLocation">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SurveyImage">
+        <PropertyRef Name="CustomerLocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerLocation_UserProfile">
+    <End Type="UAVModel.UserProfile" Role="UserProfile" Multiplicity="0..1" />
+    <End Type="UAVModel.CustomerLocation" Role="CustomerLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="CustomerLocation">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Survey__DroneID__656C112C">
+    <End Type="UAVModel.UserProfile" Role="UserProfile" Multiplicity="0..1" />
+    <End Type="UAVModel.Survey" Role="Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="PilotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Survey__SurveySt__66603565">
+    <End Type="UAVModel.SurveyStatu" Role="SurveyStatu" Multiplicity="0..1" />
+    <End Type="UAVModel.Survey" Role="Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyStatu">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="SurveyStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SurveyIma__Surve__693CA210">
+    <End Type="UAVModel.Survey" Role="Survey" Multiplicity="0..1" />
+    <End Type="UAVModel.SurveyImage" Role="SurveyImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SurveyImage">
+        <PropertyRef Name="SurveyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyCustomer_UserProfile">
+    <End Type="UAVModel.UserProfile" Role="UserProfile" Multiplicity="0..1" />
+    <End Type="UAVModel.Survey" Role="Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyPilot_UserProfile">
+    <End Type="UAVModel.UserProfile" Role="UserProfile" Multiplicity="0..1" />
+    <End Type="UAVModel.Survey" Role="Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="PilotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AssignedCustomer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int64" Nullable="false" />
+    <Property Name="PilotID" Type="Int64" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="UserProfile" Relationship="UAVModel.FK_AssignedCustomer_UserProfile" FromRole="AssignedCustomer" ToRole="UserProfile" />
+    <NavigationProperty Name="UserProfile1" Relationship="UAVModel.FK_AssignedCustomer_UserProfile1" FromRole="AssignedCustomer" ToRole="UserProfile" />
+  </EntityType>
+  <Association Name="FK_AssignedCustomer_UserProfile">
+    <End Type="UAVModel.UserProfile" Role="UserProfile" Multiplicity="1" />
+    <End Type="UAVModel.AssignedCustomer" Role="AssignedCustomer" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="AssignedCustomer">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssignedCustomer_UserProfile1">
+    <End Type="UAVModel.UserProfile" Role="UserProfile" Multiplicity="1" />
+    <End Type="UAVModel.AssignedCustomer" Role="AssignedCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="AssignedCustomer">
+        <PropertyRef Name="PilotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

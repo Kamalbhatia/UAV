@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ca988aabe2594293bff30380d5c45dfa" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="UAVModel.CustomerLocation" Width="1.5" PointX="3" PointY="19.5" />
+        <EntityTypeShape EntityType="UAVModel.DroneEquipment" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UAVModel.ErrorLog" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="UAVModel.Survey" Width="1.5" PointX="3" PointY="4" />
+        <EntityTypeShape EntityType="UAVModel.SurveyImage" Width="1.5" PointX="5.25" PointY="11.25" />
+        <EntityTypeShape EntityType="UAVModel.SurveyStatu" Width="1.5" PointX="0.75" PointY="3.375" />
+        <EntityTypeShape EntityType="UAVModel.UserProfile" Width="1.5" PointX="0.75" PointY="7.25" />
+        <AssociationConnector Association="UAVModel.FK__SurveyIma__Custo__6A30C649" />
+        <AssociationConnector Association="UAVModel.FK_CustomerLocation_UserProfile" />
+        <AssociationConnector Association="UAVModel.FK__Survey__DroneID__656C112C" />
+        <AssociationConnector Association="UAVModel.FK__Survey__SurveySt__66603565" />
+        <AssociationConnector Association="UAVModel.FK__SurveyIma__Surve__693CA210" />
+        <AssociationConnector Association="UAVModel.FK_SurveyCustomer_UserProfile" />
+        <AssociationConnector Association="UAVModel.FK_SurveyPilot_UserProfile" />
+        <EntityTypeShape EntityType="UAVModel.AssignedCustomer" Width="1.5" PointX="3" PointY="23.25" />
+        <AssociationConnector Association="UAVModel.FK_AssignedCustomer_UserProfile" />
+        <AssociationConnector Association="UAVModel.FK_AssignedCustomer_UserProfile1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

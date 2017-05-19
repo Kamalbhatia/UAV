@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Mitie Corporation</title>
+    <script src="~/Scripts/bootstrap.js"></script>
+    @Styles.Render("~/Content/Css")
+    @Styles.Render("~/Content/Css/LightBox")
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" href="@Url.Content("~/Content/images/logo.png")" type="image/x-icon" />
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <style>
+       
+        ul li.login-btn a {
+            background: #fff;
+            border-radius: 5px;
+            padding: 6px 15px;
+            font-size: 14px;
+            color: #337ab7;
+            margin:0 10px 0 0;
+        }
+        input.rem-me {
+            display: inline-block;
+            width: auto;
+            height:13px;
+        }
+        label.rem-me-label {
+            display: inline-block;
+            width: auto;
+        }
+    </style>
+
+</head>
+<body>
+    <!--header-->
+    <div class="header banr">
+        <div class="">
+            <div class="header-top">
+
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand logo" href="@Url.Action("Index", "Home")"><img src="@Url.Content("~/Content/images/mitie_logo.png")"></a>
+                        </div>
+                       
+                      
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+
+            </div>
+
+
+
+        </div>
+    </div>
+    <!--header-->
+    <!--content-->
+    @RenderBody()
+
+    <!--content-->
+    <!--footer-->
+    @*<div class="footer-section-wthree-agile">
+        <div class="container">
+            <ul class="footerMenu">
+                <li><a href="@Url.Action("About", "Home")">About Us</a></li>
+                <li><a href="@Url.Action("Contact", "Home")">Contact Us </a></li>
+            </ul>
+
+
+        </div>
+    </div>*@
+    <div class="copyRight">
+        <div class="container">
+            <div class="footer-top-w3ls-agileits">
+                <p>All rights reserved &copy; 2017 mitie.<a href=""></a></p>
+            </div>
+        </div>
+    </div>
+    <!--footer-->
+    @Scripts.Render("~/bundles/CustomJs")
+    @*@Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")*@
+
+
+    @RenderSection("scripts", required: false)
+
+</body>
+
+
+
+
+</html>
+
+
+
+<script>
+    @*var BasePath = '@(new WantWorkBusiness.Common.WebHelper(Request.RequestContext.HttpContext).GetSiteLocation())';*@
+</script>

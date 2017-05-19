@@ -1,0 +1,97 @@
+﻿@model List<UAVBusiness.Models.SurveyModel>
+
+@{
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    ViewBag.Title = "STATE";
+}
+
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="boxh1">
+                    Survey Details </h1>
+
+                <div class="clearfix"></div>
+
+                @*<span><i class="fa fa-home"></i>&nbsp;&nbsp;>&nbsp;&nbsp;  Survey List</span>*@
+            </div>
+
+            <div id="div_state_list">
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-lg-12">
+
+                            @if (Model != null && Model.Count > 0)
+                            {
+                                <table class="table table-bordered  marginTop20" id="myTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Customer Name</th>
+                                            <th>PDF</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.Title</td>
+                                                <td>@item.CustomerName</td>
+                                                <td></td>
+                                                    @*<td>
+
+                    <a onclick="return confirm('Are you sure you want to delete this item?') " href="@Url.Action("Delete", "SurveyDetail", new { id = item.ID })" class="btn btn-danger  btn-xs">Delete</a>
+
+                  @if (item.IsActive == true)
+                {
+                    <a onclick="return confirm('Are you sure you want to deactive this item?') " href="@Url.Action("ChangeStatus", "SurveyDetail", new { status = false, id = item.ID })" class="btn btn-warning  btn-xs">Deactive</a>
+                }
+                else
+                {
+                    <a onclick="return confirm('Are you sure you want to active this item?')" href="@Url.Action("ChangeStatus", "SurveyDetail", new { status = true, id = item.ID })" class="btn btn-primary  btn-xs">Active</a>
+                }
+
+
+            </td>*@
+</tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <div>No record found</div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#state").addClass("active");
+        })
+    </script>
+
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    @*<script src="~/Scripts/Pages/State.js"></script>*@
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                "aaSorting": [],
+                "aoColumns": [null, null, { "bSortable": false, "bSearchable": false }]
+            });
+        });
+    </script>
+}

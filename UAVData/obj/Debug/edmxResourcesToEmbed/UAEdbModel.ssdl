@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UAVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AssignedCustomer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="bigint" Nullable="false" />
+    <Property Name="PilotID" Type="bigint" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CustomerLocation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="bigint" />
+    <Property Name="LocationName" Type="varchar" MaxLength="100" />
+    <Property Name="Location" Type="geography" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="DroneEquipment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Model" Type="varchar" MaxLength="50" />
+    <Property Name="SerialNumber" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ErrorLogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassName" Type="nvarchar" MaxLength="200" />
+    <Property Name="MethodName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Error" Type="varchar" MaxLength="1000" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Survey">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="250" />
+    <Property Name="SurveyDate" Type="date" />
+    <Property Name="SurveyTime" Type="time" Precision="7" />
+    <Property Name="CustomerID" Type="bigint" />
+    <Property Name="CustomerLocationID" Type="bigint" />
+    <Property Name="PilotID" Type="bigint" />
+    <Property Name="DroneID" Type="int" />
+    <Property Name="SurveyStatusID" Type="int" />
+    <Property Name="EC_ATC" Type="varchar" MaxLength="200" />
+    <Property Name="EC_LocalPolice" Type="varchar" MaxLength="200" />
+    <Property Name="EC_FireBrigde" Type="varchar" MaxLength="200" />
+    <Property Name="EC_AE" Type="varchar" MaxLength="200" />
+    <Property Name="WC_Wind" Type="varchar" MaxLength="200" />
+    <Property Name="WC_Precipitation" Type="varchar" MaxLength="200" />
+    <Property Name="WC_Visibility" Type="varchar" MaxLength="200" />
+    <Property Name="WC_CloudCover" Type="varchar" MaxLength="200" />
+    <Property Name="WC_KP" Type="varchar" MaxLength="200" />
+    <Property Name="W_SunRise" Type="varchar" MaxLength="200" />
+    <Property Name="W_SunSet" Type="varchar" MaxLength="200" />
+    <Property Name="W_CTAFS" Type="varchar" MaxLength="200" />
+    <Property Name="W_WindSpeed" Type="varchar" MaxLength="200" />
+    <Property Name="W_Prepreciption" Type="varchar" MaxLength="200" />
+    <Property Name="W_Temperature" Type="varchar" MaxLength="200" />
+    <Property Name="W_Notams" Type="varchar" MaxLength="200" />
+    <Property Name="SH_NotedStructure" Type="varchar" MaxLength="200" />
+    <Property Name="SH_PedestrainRisk" Type="varchar" MaxLength="200" />
+    <Property Name="SH_VehileRisk" Type="varchar" MaxLength="200" />
+    <Property Name="SH_ATR" Type="varchar" MaxLength="200" />
+    <Property Name="SH_ExplosiveRisk" Type="varchar" MaxLength="200" />
+    <Property Name="MS_Name" Type="varchar" MaxLength="200" />
+    <Property Name="MS_Telephone" Type="varchar" MaxLength="200" />
+    <Property Name="MS_Email" Type="varchar" MaxLength="60" />
+    <Property Name="FT_StartTime" Type="datetime" />
+    <Property Name="FT_EndTime" Type="datetime" />
+    <Property Name="TimeHack" Type="datetime" />
+    <Property Name="NearAreaPopulation" Type="varchar" MaxLength="200" />
+    <Property Name="SiteAddress" Type="varchar" MaxLength="250" />
+    <Property Name="OperatingArea" Type="varchar" MaxLength="200" />
+    <Property Name="Question" Type="varchar" MaxLength="500" />
+    <Property Name="WorkDescription" Type="varchar" MaxLength="2000" />
+    <Property Name="Comments" Type="varchar" MaxLength="2000" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SurveyImages">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SurveyID" Type="bigint" />
+    <Property Name="CustomerLocationID" Type="bigint" />
+    <Property Name="OriginalImageName" Type="varchar" MaxLength="100" />
+    <Property Name="ImageName" Type="varchar" MaxLength="100" />
+    <Property Name="ModifiedImageName" Type="varchar" MaxLength="100" />
+    <Property Name="Finding" Type="varchar" MaxLength="2000" />
+    <Property Name="Recommentation" Type="varchar" MaxLength="2000" />
+    <Property Name="CanMitieRepair" Type="bit" />
+    <Property Name="Cost" Type="money" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SurveyStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FName" Type="nvarchar" MaxLength="56" Nullable="false" />
+    <Property Name="LName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="56" />
+    <Property Name="Password" Type="nvarchar" MaxLength="56" />
+    <Property Name="Type" Type="varchar" MaxLength="10" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Address1" Type="varchar" MaxLength="100" />
+    <Property Name="Address2" Type="varchar" MaxLength="100" />
+    <Property Name="City" Type="varchar" MaxLength="20" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__Survey__DroneID__656C112C">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="0..1" />
+    <End Role="Survey" Type="Self.Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="PilotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Survey__SurveySt__66603565">
+    <End Role="SurveyStatus" Type="Self.SurveyStatus" Multiplicity="0..1" />
+    <End Role="Survey" Type="Self.Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SurveyStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="SurveyStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SurveyIma__Custo__6A30C649">
+    <End Role="CustomerLocation" Type="Self.CustomerLocation" Multiplicity="0..1" />
+    <End Role="SurveyImages" Type="Self.SurveyImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerLocation">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SurveyImages">
+        <PropertyRef Name="CustomerLocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SurveyIma__Surve__693CA210">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="0..1" />
+    <End Role="SurveyImages" Type="Self.SurveyImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SurveyImages">
+        <PropertyRef Name="SurveyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssignedCustomer_UserProfile">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+    <End Role="AssignedCustomer" Type="Self.AssignedCustomer" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="AssignedCustomer">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssignedCustomer_UserProfile1">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+    <End Role="AssignedCustomer" Type="Self.AssignedCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="AssignedCustomer">
+        <PropertyRef Name="PilotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerLocation_UserProfile">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="0..1" />
+    <End Role="CustomerLocation" Type="Self.CustomerLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="CustomerLocation">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyCustomer_UserProfile">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="0..1" />
+    <End Role="Survey" Type="Self.Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyPilot_UserProfile">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="0..1" />
+    <End Role="Survey" Type="Self.Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="PilotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UAVModelStoreContainer">
+    <EntitySet Name="AssignedCustomer" EntityType="Self.AssignedCustomer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerLocation" EntityType="Self.CustomerLocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DroneEquipment" EntityType="Self.DroneEquipment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ErrorLogs" EntityType="Self.ErrorLogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Survey" EntityType="Self.Survey" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SurveyImages" EntityType="Self.SurveyImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SurveyStatus" EntityType="Self.SurveyStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Survey__DroneID__656C112C" Association="Self.FK__Survey__DroneID__656C112C">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="Survey" EntitySet="Survey" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Survey__SurveySt__66603565" Association="Self.FK__Survey__SurveySt__66603565">
+      <End Role="SurveyStatus" EntitySet="SurveyStatus" />
+      <End Role="Survey" EntitySet="Survey" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SurveyIma__Custo__6A30C649" Association="Self.FK__SurveyIma__Custo__6A30C649">
+      <End Role="CustomerLocation" EntitySet="CustomerLocation" />
+      <End Role="SurveyImages" EntitySet="SurveyImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SurveyIma__Surve__693CA210" Association="Self.FK__SurveyIma__Surve__693CA210">
+      <End Role="Survey" EntitySet="Survey" />
+      <End Role="SurveyImages" EntitySet="SurveyImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssignedCustomer_UserProfile" Association="Self.FK_AssignedCustomer_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="AssignedCustomer" EntitySet="AssignedCustomer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssignedCustomer_UserProfile1" Association="Self.FK_AssignedCustomer_UserProfile1">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="AssignedCustomer" EntitySet="AssignedCustomer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerLocation_UserProfile" Association="Self.FK_CustomerLocation_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="CustomerLocation" EntitySet="CustomerLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyCustomer_UserProfile" Association="Self.FK_SurveyCustomer_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="Survey" EntitySet="Survey" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyPilot_UserProfile" Association="Self.FK_SurveyPilot_UserProfile">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="Survey" EntitySet="Survey" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

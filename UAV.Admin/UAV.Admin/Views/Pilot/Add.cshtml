@@ -1,0 +1,139 @@
+﻿@model UAVBusiness.Models.PilotModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "STATE";
+
+
+    string btnText = Model != null && Model.ID > 0 ? "Update" : "Add";
+}
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="boxh1">
+                   Pilot
+                </h1>
+                <div class="clearfix"></div>
+
+            </div>
+            <div id="div_state_add">
+
+                @using (Html.BeginForm("AddUpdate", "Pilot", FormMethod.Post, new { @id = "form_state_add", @class = "add-cat-form" }))
+                {
+                    
+                    @Html.HiddenFor(t => t.ID)
+                    
+                    
+                    
+                    
+                    <div class="col-lg-6" >
+                     <div class="form-group row">
+                        <label class="control-label col-sm-12 marginTop20" for="email">First Name</label>
+                        <div class="col-sm-12">
+                            @Html.TextBoxFor(t => t.FName, new { @class = "form-control", @placeholder = "First Name" })
+                            @Html.ValidationMessageFor(t => t.FName, null, new { @class = "validation" })
+                        </div>
+                    </div>
+					</div>
+                  
+                    <div class="col-lg-6" >
+                     <div class="form-group row ">
+                        <label class="control-label col-sm-12 marginTop20" for="email">Last Name</label>
+
+
+                         <div class="col-sm-12">
+                             @Html.TextBoxFor(t => t.LName, new { @class = "form-control", @placeholder = "Last Name" })
+                             @Html.ValidationMessageFor(t => t.LName, null, new { @class = "validation" })
+                         </div>
+                    </div>
+					</div>
+                    <div class="col-lg-6" >
+                      <div class="form-group row">
+                        <label class="control-label col-sm-12 marginTop20" for="email">Email</label>
+                          <div class="col-sm-12">
+                              @Html.TextBoxFor(t => t.Email, new { @class = "form-control", @placeholder = "Email" })
+                              @Html.ValidationMessageFor(t => t.Email, null, new { @class = "validation" })
+                          </div>
+                    </div>
+					</div>
+                    <div class="col-lg-6" >
+                     <div class="form-group row">
+                        <label class="control-label col-sm-12 marginTop20" for="email">Phone</label>
+
+
+                         <div class="col-sm-12">
+                             @Html.TextBoxFor(t => t.Phone, new { @class = "form-control", @placeholder = "Phone" })
+                             @Html.ValidationMessageFor(t => t.Phone, null, new { @class = "validation" })
+                         </div>
+                    </div>
+                    </div>
+                    <div class="col-lg-6" >
+                      <div class="form-group row">
+                        <label class="control-label col-sm-12 marginTop20" for="email">Address 1</label>
+                          <div class="col-sm-12">
+                              @Html.TextBoxFor(t => t.Address1, new { @class = "form-control", @placeholder = "Address 1" })
+                              @Html.ValidationMessageFor(t => t.Address1, null, new { @class = "validation" })
+                          </div>
+                    </div>
+                    </div>
+                    <div class="col-lg-6" >
+                     <div class="form-group row">
+                        <label class="control-label col-sm-12 marginTop20" for="email">Address 2</label>
+
+
+                         <div class="col-sm-12">
+                             @Html.TextBoxFor(t => t.Address2, new { @class = "form-control", @placeholder = "Address 2" })
+                             @Html.ValidationMessageFor(t => t.Address2, null, new { @class = "validation" })
+                         </div>
+                    </div>
+                    </div>
+                    <div class="col-lg-6" >
+                      <div class="form-group row">
+                        <label class="control-label col-sm-12 marginTop20" for="email">City</label>
+                          <div class="col-sm-12">
+                              @Html.TextBoxFor(t => t.City, new { @class = "form-control", @placeholder = "City" })
+                              @Html.ValidationMessageFor(t => t.City, null, new { @class = "validation" })
+                          </div>
+                    </div>
+                    
+                     </div>
+                     <div class="col-lg-6" >
+                      <div class="form-group row">
+                        <label class="control-label col-sm-12 marginTop20" for="email">Password</label>
+                          <div class="col-sm-12">
+                              @Html.PasswordFor(t => t.Password, new { @class = "form-control", @placeholder = "Password" })
+                              @Html.ValidationMessageFor(t => t.Password, null, new { @class = "validation" })
+                          </div>
+                    </div>
+                    
+                     </div>
+                    @*<div class="col-lg-6 row" >
+                     <div class="form-group">
+                        <label class="control-label col-sm-12 marginTop20" for="email">Country</label>
+
+
+                         <div class="col-sm-12 ">
+                             @Html.TextBoxFor(t => t.Country, new { @class = "form-control", @placeholder = "Address 2" })
+                             @Html.ValidationMessageFor(t => t.Country, null, new { @class = "validation" })
+                         </div>
+                    </div>
+                    </div>*@
+                    <div class="col-lg-12 text-right" >
+                    
+                      <div class="form-group row">
+                        <div class="col-sm-12  marginTop20">
+                            <a href="@Url.Action("List", "Pilot")" class="btn btn-success">Cancel</a>
+                            <button type="submit" class="btn btn-success">@btnText</button>
+                        </div>
+                    </div>
+</div>
+                   
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+

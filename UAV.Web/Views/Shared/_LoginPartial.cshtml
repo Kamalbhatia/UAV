@@ -1,0 +1,14 @@
+﻿@if (UAV.Web.Common.UserSession.UserId>0)
+{
+    <text>
+        <span>Hello, </span>@UAV.Web.Common.UserSession.UserName
+        @using (Html.BeginForm("LogOff", "Home", FormMethod.Post, new { id = "logoutForm" })) {
+            @Html.AntiForgeryToken()
+
+            <a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-fw fa-power-off"></i> Log off</a>
+        }
+    </text>
+} else {
+    
+        @Html.ActionLink("Log in", "Login", "Home", routeValues: null, htmlAttributes: new { id = "loginLink" })
+}

@@ -1,0 +1,39 @@
+D:\CurrentProject\UAV\UAV\UAVBusiness\bin\Debug\UAVBusiness.dll.config
+D:\CurrentProject\UAV\UAV\UAVBusiness\bin\Debug\UAVBusiness.dll
+D:\CurrentProject\UAV\UAV\UAVBusiness\bin\Debug\UAVBusiness.pdb
+D:\CurrentProject\UAV\UAV\UAVBusiness\bin\Debug\EntityFramework.dll
+D:\CurrentProject\UAV\UAV\UAVBusiness\bin\Debug\EntityFramework.SqlServer.dll
+D:\CurrentProject\UAV\UAV\UAVBusiness\bin\Debug\Newtonsoft.Json.dll
+D:\CurrentProject\UAV\UAV\UAVBusiness\bin\Debug\UAVData.dll
+D:\CurrentProject\UAV\UAV\UAVBusiness\bin\Debug\UAVData.pdb
+D:\CurrentProject\UAV\UAV\UAVBusiness\bin\Debug\EntityFramework.xml
+D:\CurrentProject\UAV\UAV\UAVBusiness\bin\Debug\EntityFramework.SqlServer.xml
+D:\CurrentProject\UAV\UAV\UAVBusiness\obj\Debug\UAVBusiness.csprojResolveAssemblyReference.cache
+D:\CurrentProject\UAV\UAV\UAVBusiness\obj\Debug\UAVBusiness.dll
+D:\CurrentProject\UAV\UAV\UAVBusiness\obj\Debug\UAVBusiness.pdb
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVBusiness\bin\Debug\UAVBusiness.dll.config
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVBusiness\bin\Debug\UAVBusiness.dll
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVBusiness\bin\Debug\UAVBusiness.pdb
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVBusiness\bin\Debug\EntityFramework.dll
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVBusiness\bin\Debug\EntityFramework.SqlServer.dll
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVBusiness\bin\Debug\Newtonsoft.Json.dll
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVBusiness\bin\Debug\UAVData.dll
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVBusiness\bin\Debug\UAVData.pdb
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVBusiness\bin\Debug\EntityFramework.xml
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVBusiness\bin\Debug\EntityFramework.SqlServer.xml
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVBusiness\obj\Debug\UAVBusiness.csprojResolveAssemblyReference.cache
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVBusiness\obj\Debug\UAVBusiness.dll
+D:\CurrentProject\UAV svn\trunk\UAV\UAV\UAVBusiness\obj\Debug\UAVBusiness.pdb
+E:\Projects\UAV\trunk\UAV\UAV\UAVBusiness\bin\Debug\UAVBusiness.dll.config
+E:\Projects\UAV\trunk\UAV\UAV\UAVBusiness\bin\Debug\UAVBusiness.dll
+E:\Projects\UAV\trunk\UAV\UAV\UAVBusiness\bin\Debug\UAVBusiness.pdb
+E:\Projects\UAV\trunk\UAV\UAV\UAVBusiness\bin\Debug\EntityFramework.dll
+E:\Projects\UAV\trunk\UAV\UAV\UAVBusiness\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\UAV\trunk\UAV\UAV\UAVBusiness\bin\Debug\Newtonsoft.Json.dll
+E:\Projects\UAV\trunk\UAV\UAV\UAVBusiness\bin\Debug\UAVData.dll
+E:\Projects\UAV\trunk\UAV\UAV\UAVBusiness\bin\Debug\UAVData.pdb
+E:\Projects\UAV\trunk\UAV\UAV\UAVBusiness\bin\Debug\EntityFramework.xml
+E:\Projects\UAV\trunk\UAV\UAV\UAVBusiness\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\UAV\trunk\UAV\UAV\UAVBusiness\obj\Debug\UAVBusiness.csprojResolveAssemblyReference.cache
+E:\Projects\UAV\trunk\UAV\UAV\UAVBusiness\obj\Debug\UAVBusiness.dll
+E:\Projects\UAV\trunk\UAV\UAV\UAVBusiness\obj\Debug\UAVBusiness.pdb

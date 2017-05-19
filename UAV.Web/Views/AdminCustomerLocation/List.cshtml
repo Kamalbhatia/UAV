@@ -1,0 +1,108 @@
+﻿@model List<UAVBusiness.Models.CustomerLocationModel>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <h1 class="boxh1">
+                    Customer Location List
+                    <a class="pull-right" href="@Url.Action("Add", "AdminCustomerLocation")">
+                        <span class="add-job-cat"> + </span> Add Customer Location
+                    </a>
+                </h1>
+                
+            </div>
+
+            <div id="div_state_list">
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-lg-12">
+
+                            @if (Model != null && Model.Count > 0)
+                            {
+                                <table class="table table-bordered  marginTop20" id="myTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Customer Name</th>
+                                            <th>Location Name</th>
+                                            <th>Location</th>
+                                        
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.CustomerName</td>
+                                                <td>@item.LocationName</td>
+                                                <td>@item.Location</td>
+
+                                                <td>
+                                                    <a href="@Url.Action("Add", "AdminCustomerLocation", new { id = item.ID })" class="btn btn-primary btn-xs">Edit</a>
+
+                                                    @if (item.IsDeleted == true)
+                                                    {
+                                                        <a onclick="return confirm('Are you sure you want to enable this item?') " href="@Url.Action("Delete", "AdminCustomerLocation", new { id = item.ID })" class="btn btn-danger  btn-xs">Delete</a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a onclick="return confirm('Are you sure you want to delete this item?') " href="@Url.Action("Delete", "AdminCustomerLocation", new { id = item.ID })" class="btn btn-danger  btn-blue">Enable</a>
+                                                    }
+                                                    @if (item.IsActive == true)
+                                                    {
+                                                        <a onclick="return confirm('Are you sure you want to deactive this item?') " href="@Url.Action("ChangeStatus", "AdminCustomerLocation", new { status = false, id = item.ID })" class="btn btn-warning  btn-xs">Deactive</a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a onclick="return confirm('Are you sure you want to active this item?')" href="@Url.Action("ChangeStatus", "AdminCustomerLocation", new { status = true, id = item.ID })" class="btn btn-primary  btn-xs">Active</a>
+                                                    }
+
+
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <div>No record found</div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#state").addClass("active");
+        })
+    </script>
+
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    @*<script src="~/Scripts/Pages/State.js"></script>*@
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                "aaSorting": [],
+                "aoColumns": [null, null, null, null, null, { "bSortable": false, "bSearchable": false }]
+            });
+        });
+    </script>
+}

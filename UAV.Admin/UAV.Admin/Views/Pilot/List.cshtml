@@ -1,0 +1,114 @@
+﻿@model List<UAVBusiness.Models.PilotModel>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "STATE";
+}
+
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="boxh1"> Pilot List
+                    <a class="pull-right" href="@Url.Action("Add", "Pilot")">
+                        <span class="add-job-cat"> + </span> Add Pilot
+                    </a>
+                </h1>
+
+                <div class="clearfix"></div>
+
+                @*<span><i class="fa fa-home"></i>&nbsp;&nbsp;>&nbsp;&nbsp;  Pilot List</span>*@
+            </div>
+
+            <div id="div_state_list">
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-lg-12">
+
+                            @if (Model != null && Model.Count > 0)
+                            {
+                                <table class="table table-bordered  marginTop20" id="myTable">
+                                    <thead>
+                                        <tr>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>City</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.FName</td>
+                                                <td>@item.LName</td>
+                                                <td>@item.Email</td>
+                                                <td>@item.Phone</td>
+                                                <td>@item.City</td>
+                                                <td>
+                                                    <a href="@Url.Action("Add", "Pilot", new { id = item.ID })" class="btn btn-primary btn-xs">Edit</a>
+                                                    <a onclick="return confirm('Are you sure you want to delete this item?') " href="@Url.Action("Delete", "Pilot", new { id = item.ID })" class="btn btn-danger  btn-xs">Delete</a>
+                                                    @if (item.IsActive == true)
+                                                    {
+                                                        <a onclick="return confirm('Are you sure you want to deactive this item?') " href="@Url.Action("ChangeStatus", "Pilot", new { status = false, id = item.ID })" class="btn btn-warning  btn-xs">Deactive</a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a onclick="return confirm('Are you sure you want to active this item?')" href="@Url.Action("ChangeStatus", "Pilot", new { status = true, id = item.ID })" class="btn btn-primary  btn-xs">Active</a>
+                                                    }
+
+                                                    @*<a href="javascript:void(0);" onclick="editState(@item.Id)" class="btn btn-primary btn-xs">Edit</a>
+                                                        <a onclick="deleteState(@item.Id);" href="javascript:void(0);" class="btn btn-danger  btn-xs">Delete</a>
+
+                                                        @if (item.IsActive == true)
+                                                        {
+                                                            <a onclick="changeStateStatus(@item.Id, false)" href="javascript:void(0)" class="btn btn-warning  btn-xs">Deactive</a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a onclick="changeStateStatus(@item.Id, true)" href="javascript:void(0)" class="btn btn-primary  btn-xs">Active</a>
+                                                        }*@
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <div>No record found</div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#state").addClass("active");
+        })
+    </script>
+
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    @*<script src="~/Scripts/Pages/State.js"></script>*@
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                "aaSorting": [],
+                "aoColumns": [null, null,null,null,null, { "bSortable": false, "bSearchable": false }]
+            });
+        });
+    </script>
+}

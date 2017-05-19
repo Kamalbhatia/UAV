@@ -1,0 +1,240 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="@Url.Content("~/Content/images/logo.png")" type="image/x-icon" />
+    <title>Mitie Corporation</title>
+
+    @Styles.Render("~/Content/Admin/css")
+
+    <link href="~/Content/Css/jquery.mCustomScrollbar.css" rel="stylesheet" />
+
+    <style>
+
+
+        ul li.login-btn a {
+            background: #fff;
+            border-radius: 5px;
+            padding: 6px 15px;
+            font-size: 14px;
+            color: #337ab7;
+            margin: 0 10px 0 0;
+            display: inline-block;
+        }
+
+        input.rem-me {
+            display: inline-block;
+            width: auto;
+            height: 13px;
+        }
+
+        label.rem-me-label {
+            display: inline-block;
+            width: auto;
+        }
+        #logoutForm {
+            margin-top:10px;
+            display:inline-block;
+        }
+        ul li.logoff-btn span {
+            color: #fff;
+            font-size: 16px;
+            display: inline-block;
+        }
+        ul li.logoff-btn a {
+            color: #fff;
+            font-size: 16px;
+            display: inline-block;
+        }
+
+        ul li.logoff-btn form a {
+            background: #482060;
+            border-radius: 5px;
+            padding: 6px 15px;
+            font-size: 14px;
+            color: #fff;
+            margin: 0 10px 0 0;
+            display: inline-block;
+        }
+ul li.logoff-btn form#logoutForm a:hover { background:#623183; }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand logo" href="@Url.Action("Index", "Home")"><img src="@Url.Content("~/Content/images/mitie_logo.png")"></a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+
+
+                <li class="logoff-btn">
+                    @*@WantWork.Controllers.WantWorkSession.AdminUserName*@
+                    @Html.Partial("_LoginPartial")
+                </li>
+
+
+            </ul>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav mCustomScrollbar _mCS_1">
+
+
+
+                    <li>
+                        <a href="@Url.Action("Index","Home")"><i><img src="@Url.Content("~/Content/images/menuIcon/job-cate.png")" /></i> Dashboard</a>
+                    </li>
+
+                    <li >
+                        <a href="@Url.Action("List", "Pilot")"><i><img src="@Url.Content("~/Content/images/pilot-menu.png")" /></i> Manage Pilots</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("List", "DroneEquipment")"><i><img src="@Url.Content("~/Content/images/drone-menu.png")" /></i> Drone Equipment</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("List", "SurveyDetail")"><i><img src="@Url.Content("~/Content/images/serv-menu.png")" /></i> Survey Details</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("List", "Customer")"><i><img src="@Url.Content("~/Content/images/cust-menu.png")" /></i> Manage Customers</a>
+                    </li>
+
+                    
+                    
+                    @*<li data-toggle="collapse" data-target="#service" class="collapsed">
+                        <a href="javascript:void(0)"><i><img src="@Url.Content("~/Content/images/menuIcon/seting.png")"></i> More Option <span class="pull-right"> <img src="@Url.Content("~/Content/images/menuIcon/nav-arrow.png")"></span></a>
+                        <ul class="sub-menu collapse" id="service">
+                            <li><a href="">Option 1</a></li>
+                            <li><a href="">Option 2</a></li>
+                            <li><a href="">Option 3</a></li>
+                            <li><a href="">Option 4</a></li>
+                            <li><a href="">Option 5</a></li>
+                            <li><a href="">Option 6</a></li>
+                        </ul>
+                    </li>*@
+
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper">
+            @RenderBody()
+        </div>
+    </div>
+
+    <div id="msgDiv" style="display: none; margin-top: 90px; padding: 0 3%; position: fixed; width: 71%; top: 5px; left:31%; z-index: 9999">
+        <div id="errorMsg">
+        </div>
+    </div>
+
+    <div id="loading">
+        <img src="@Url.Content("~/Content/images/Loader.gif")" />
+    </div>
+
+    
+
+
+    <script src="~/Scripts/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="js/bootstrap-toggle.min.js"></script>
+    <script src="~/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+    <script>
+        (function ($) {
+            $(window).on("load", function () {
+
+                $(".mCustomScrollbar").mCustomScrollbar({
+                    theme: "minimal"
+                });
+
+            });
+        })(jQuery);
+    </script>
+
+
+
+    @RenderSection("scripts", required: false)
+
+    <style>
+        .alert-success {
+            background-color: #5cb85c;
+            border-color: #d6e9c6;
+            color: white;
+        }
+
+        .alert-danger {
+            background-color: #d9534f;
+            border-color: #ebccd1;
+            color: white;
+        }
+
+        .margin10 {
+            margin-top: 10px !important;
+        }
+    </style>
+
+    <style>
+        .norBtn {
+            background-color: #005796;
+            border-color: #005796;
+            color: white;
+        }
+
+        #msg {
+            font-weight: bold;
+            padding: 5px 15px;
+        }
+
+        .successmsg {
+            color: black;
+        }
+
+        .errormsg {
+            color: #D61F1F;
+        }
+
+        #loading {
+            background: white none repeat scroll 0 0;
+            display: none;
+            height: 100%;
+            opacity: 0.5;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 99999;
+        }
+
+            #loading img {
+                left: 45%;
+                position: absolute;
+                top: 45%;
+                z-index: 9999;
+            }
+    </style>
+
+
+</body>
+
+</html>
+
+
+
+<script>
+    @*var BasePath = '@(new WantWorkBusiness.Common.WebHelper(Request.RequestContext.HttpContext).GetSiteLocation())';*@
+</script>
+

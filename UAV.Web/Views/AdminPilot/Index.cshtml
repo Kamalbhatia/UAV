@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Index Page";
+}
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="main-heading">Dashboard</h2>
+                <div class="">
+
+
+                    <div class="dashboard-inner">
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="dashboard-box dash-box1">
+                                    <i>
+                                        <img src="@Url.Content("~/Content/images/pilot-icon.png")">
+                                        <span>15</span>
+                                    </i>
+                                    <h2>No. of Pilots</h2>
+
+                                    @*<div class="text-right">
+                                            <a href="@Url.Action("List", "DroneEquipment")" class="update-btn dash-box1-btn">Drone Equipments</a>
+                                        </div>*@
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="dashboard-box dash-box1">
+                                    <i>
+                                        <img src="@Url.Content("~/Content/images/drone-eqt.png")">
+                                        <span>15</span>
+                                    </i>
+                                    <h2>No. Of Drones</h2>
+
+                                    @*<div class="text-right">
+                                            <a href="@Url.Action("List", "DroneEquipment")" class="update-btn dash-box1-btn">Drone Equipments</a>
+                                        </div>*@
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="dashboard-box dash-box1">
+                                    <i>
+                                        <img src="@Url.Content("~/Content/images/survey.png")">
+                                        <span>5</span>
+                                    </i>
+                                    <h2>Today's Survey</h2>
+
+                                    @*<div class="text-right">
+                                            <a href="@Url.Action("List", "Pilot")" class="update-btn dash-box1-btn">Manage Pilot</a>
+                                        </div>*@
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="dashboard-box dash-box1">
+                                    <i>
+                                        <img src="@Url.Content("~/Content/images/customer.png")">
+                                        <span>5</span>
+                                    </i>
+                                    <h2>No. Of Customers</h2>
+
+                                    @*<div class="text-right">
+                                            <a href="@Url.Action("List", "Pilot")" class="update-btn dash-box1-btn">Manage Pilot</a>
+                                        </div>*@
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

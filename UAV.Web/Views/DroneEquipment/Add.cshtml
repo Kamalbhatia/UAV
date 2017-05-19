@@ -1,0 +1,65 @@
+﻿@model UAVBusiness.Models.DroneEquipmentModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+   
+
+
+    string btnText = Model != null && Model.ID > 0 ? "Update" : "Add";
+}
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="boxh1">
+                    Drone Equipment
+                </h1>
+                <div class="clearfix"></div>
+
+            </div>
+            <div id="div_state_add">
+
+                @using (Html.BeginForm("AddUpdate", "DroneEquipment", FormMethod.Post, new { @id = "form_state_add", @class = "add-cat-form" }))
+                {
+                    @Html.HiddenFor(t => t.ID)
+                    
+                    
+                    
+                    
+                    <div class="col-lg-6" >
+                    <div class="form-group row">
+                        <label class="control-label col-sm-12 marginTop20" for="email">Model Name</label>
+                        <div class="col-sm-12">
+                            @Html.TextBoxFor(t => t.Model, new { @class = "form-control", @placeholder = "Model Name" })
+                            @Html.ValidationMessageFor(t => t.Model, null, new { @class = "validation" })
+                        </div>
+                    </div>
+                    </div>
+					<div class="col-lg-6" >
+                     <div class="form-group row">
+                        <label class="control-label col-sm-12 marginTop20" for="email">Serial Number</label>
+                         <div class="col-sm-12">
+                             @Html.TextBoxFor(t => t.SerialNumber, new { @class = "form-control", @placeholder = "Serial Number" })
+                             @Html.ValidationMessageFor(t => t.SerialNumber, null, new { @class = "validation" })
+                         </div>
+                    </div>
+                    </div>
+                    
+                     
+                    <div class="col-lg-12 text-right" >
+                      <div class="form-group row">
+                        <div class="col-sm-12  marginTop20">
+                            <a href="@Url.Action("List", "DroneEquipment")" class="btn btn-success">Cancel</a>
+                            <button type="submit" class="btn btn-success">@btnText</button>
+                        </div>
+                    </div>
+</div>
+                   
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+

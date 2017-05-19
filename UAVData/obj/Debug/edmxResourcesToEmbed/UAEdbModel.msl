@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UAVModelStoreContainer" CdmEntityContainer="UAVEntities">
+    <EntitySetMapping Name="CustomerLocations">
+      <EntityTypeMapping TypeName="UAVModel.CustomerLocation">
+        <MappingFragment StoreEntitySet="CustomerLocation">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DroneEquipments">
+      <EntityTypeMapping TypeName="UAVModel.DroneEquipment">
+        <MappingFragment StoreEntitySet="DroneEquipment">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorLogs">
+      <EntityTypeMapping TypeName="UAVModel.ErrorLog">
+        <MappingFragment StoreEntitySet="ErrorLogs">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Error" ColumnName="Error" />
+          <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Surveys">
+      <EntityTypeMapping TypeName="UAVModel.Survey">
+        <MappingFragment StoreEntitySet="Survey">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="WorkDescription" ColumnName="WorkDescription" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="OperatingArea" ColumnName="OperatingArea" />
+          <ScalarProperty Name="SiteAddress" ColumnName="SiteAddress" />
+          <ScalarProperty Name="NearAreaPopulation" ColumnName="NearAreaPopulation" />
+          <ScalarProperty Name="TimeHack" ColumnName="TimeHack" />
+          <ScalarProperty Name="FT_EndTime" ColumnName="FT_EndTime" />
+          <ScalarProperty Name="FT_StartTime" ColumnName="FT_StartTime" />
+          <ScalarProperty Name="MS_Email" ColumnName="MS_Email" />
+          <ScalarProperty Name="MS_Telephone" ColumnName="MS_Telephone" />
+          <ScalarProperty Name="MS_Name" ColumnName="MS_Name" />
+          <ScalarProperty Name="SH_ExplosiveRisk" ColumnName="SH_ExplosiveRisk" />
+          <ScalarProperty Name="SH_ATR" ColumnName="SH_ATR" />
+          <ScalarProperty Name="SH_VehileRisk" ColumnName="SH_VehileRisk" />
+          <ScalarProperty Name="SH_PedestrainRisk" ColumnName="SH_PedestrainRisk" />
+          <ScalarProperty Name="SH_NotedStructure" ColumnName="SH_NotedStructure" />
+          <ScalarProperty Name="W_Notams" ColumnName="W_Notams" />
+          <ScalarProperty Name="W_Temperature" ColumnName="W_Temperature" />
+          <ScalarProperty Name="W_Prepreciption" ColumnName="W_Prepreciption" />
+          <ScalarProperty Name="W_WindSpeed" ColumnName="W_WindSpeed" />
+          <ScalarProperty Name="W_CTAFS" ColumnName="W_CTAFS" />
+          <ScalarProperty Name="W_SunSet" ColumnName="W_SunSet" />
+          <ScalarProperty Name="W_SunRise" ColumnName="W_SunRise" />
+          <ScalarProperty Name="WC_KP" ColumnName="WC_KP" />
+          <ScalarProperty Name="WC_CloudCover" ColumnName="WC_CloudCover" />
+          <ScalarProperty Name="WC_Visibility" ColumnName="WC_Visibility" />
+          <ScalarProperty Name="WC_Precipitation" ColumnName="WC_Precipitation" />
+          <ScalarProperty Name="WC_Wind" ColumnName="WC_Wind" />
+          <ScalarProperty Name="EC_AE" ColumnName="EC_AE" />
+          <ScalarProperty Name="EC_FireBrigde" ColumnName="EC_FireBrigde" />
+          <ScalarProperty Name="EC_LocalPolice" ColumnName="EC_LocalPolice" />
+          <ScalarProperty Name="EC_ATC" ColumnName="EC_ATC" />
+          <ScalarProperty Name="SurveyStatusID" ColumnName="SurveyStatusID" />
+          <ScalarProperty Name="DroneID" ColumnName="DroneID" />
+          <ScalarProperty Name="PilotID" ColumnName="PilotID" />
+          <ScalarProperty Name="CustomerLocationID" ColumnName="CustomerLocationID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="SurveyTime" ColumnName="SurveyTime" />
+          <ScalarProperty Name="SurveyDate" ColumnName="SurveyDate" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyImages">
+      <EntityTypeMapping TypeName="UAVModel.SurveyImage">
+        <MappingFragment StoreEntitySet="SurveyImages">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="CanMitieRepair" ColumnName="CanMitieRepair" />
+          <ScalarProperty Name="Recommentation" ColumnName="Recommentation" />
+          <ScalarProperty Name="Finding" ColumnName="Finding" />
+          <ScalarProperty Name="ModifiedImageName" ColumnName="ModifiedImageName" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="OriginalImageName" ColumnName="OriginalImageName" />
+          <ScalarProperty Name="CustomerLocationID" ColumnName="CustomerLocationID" />
+          <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyStatus">
+      <EntityTypeMapping TypeName="UAVModel.SurveyStatu">
+        <MappingFragment StoreEntitySet="SurveyStatus">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfiles">
+      <EntityTypeMapping TypeName="UAVModel.UserProfile">
+        <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssignedCustomers">
+      <EntityTypeMapping TypeName="UAVModel.AssignedCustomer">
+        <MappingFragment StoreEntitySet="AssignedCustomer">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="PilotID" ColumnName="PilotID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
